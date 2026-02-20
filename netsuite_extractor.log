@@ -1,0 +1,207 @@
+2026-02-10 16:38:52,706 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 16:38:52,706 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:38:52,706 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 16:38:52,706 - ERROR - ❌ Error inesperado: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:38:52,707 - ERROR - ❌ Error fatal en extracción: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:40:27,184 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 16:40:27,184 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:40:27,184 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 16:40:27,184 - ERROR - ❌ Error inesperado: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:40:27,184 - ERROR - ❌ Error fatal en extracción: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:40:50,663 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 16:40:50,663 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:40:50,663 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 16:40:50,664 - ERROR - ❌ Error inesperado: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:40:50,664 - ERROR - ❌ Error fatal en extracción: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+2026-02-10 16:41:46,614 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 16:41:46,615 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:41:46,615 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 16:41:49,653 - INFO - Recuperados 934 de 934 registros (página 1)
+2026-02-10 16:41:49,653 - INFO - ✓ Extracción completada: 934 registros recuperados
+2026-02-10 16:41:49,657 - INFO - ✓ Procesamiento completado: 934 registros válidos
+2026-02-10 16:41:49,665 - INFO - ✓ CSV exportado: ventas_ia.csv (934 registros)
+2026-02-10 16:42:37,851 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 16:42:37,851 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:42:37,851 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 16:42:39,522 - INFO - Recuperados 934 de 934 registros (página 1)
+2026-02-10 16:42:39,522 - INFO - ✓ Extracción completada: 934 registros recuperados
+2026-02-10 16:42:39,524 - INFO - ✓ Procesamiento completado: 934 registros válidos
+2026-02-10 16:42:39,527 - INFO - ✓ CSV exportado: ventas_ia.csv (934 registros)
+2026-02-10 16:57:14,075 - INFO - 🚀 Iniciando extracción de ventas desde 01/01/2026
+2026-02-10 16:57:14,075 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:57:14,075 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/01/2026)
+2026-02-10 16:57:16,183 - INFO - Recuperados 1000 de 4737 registros (página 1)
+2026-02-10 16:57:16,660 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 16:57:16,661 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= TO_DATE('01/01/2026', 'DD/MM/YYYY')\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 16:57:16,661 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 16:58:14,407 - INFO - 🚀 Iniciando extracción de ventas desde 01/01/2026
+2026-02-10 16:58:14,407 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 16:58:14,407 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/01/2026)
+2026-02-10 16:58:15,679 - INFO - Recuperados 1000 de 4737 registros (página 1)
+2026-02-10 16:58:16,076 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 16:58:16,076 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= TO_DATE('01/01/2026', 'DD/MM/YYYY')\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 16:58:16,076 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 16:59:00,881 - ERROR - ❌ Error fatal en extracción: replace() takes at least 2 positional arguments (0 given)
+2026-02-10 16:59:39,644 - ERROR - ❌ Error fatal en extracción: 'str' object has no attribute 'strftime'
+2026-02-10 17:02:39,332 - INFO - 🚀 Iniciando extracción de ventas desde 2026-01-01 00:00:00
+2026-02-10 17:02:39,332 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:02:39,332 - ERROR - ❌ Error fatal en extracción: replace() argument 2 must be str, not datetime.datetime
+2026-02-10 17:05:29,724 - INFO - 🚀 Iniciando extracción de ventas desde 2026-01-01 00:00:00
+2026-02-10 17:05:29,725 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:05:29,725 - ERROR - ❌ Error fatal en extracción: replace() argument 2 must be str, not datetime.datetime
+2026-02-10 17:07:23,227 - INFO - 🚀 Iniciando extracción de ventas desde 2026-01-01 00:00:00
+2026-02-10 17:07:23,228 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:07:23,228 - ERROR - ❌ Error fatal en extracción: replace() argument 2 must be str, not datetime.datetime
+2026-02-10 17:07:43,235 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:07:43,235 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=None)
+2026-02-10 17:07:45,517 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:07:46,045 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:07:46,045 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= '01/01/2026'\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 17:07:46,046 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:08:25,978 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:08:25,979 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=None)
+2026-02-10 17:08:27,220 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:08:27,711 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:08:27,711 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= '01/01/2026'\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 17:08:27,711 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:08:57,652 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:08:57,652 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=None)
+2026-02-10 17:08:58,970 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:08:59,244 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:08:59,244 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= '01/01/2026'\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 17:08:59,244 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:09:39,263 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:09:39,264 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=None)
+2026-02-10 17:09:40,334 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:09:40,839 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:09:40,839 - ERROR - Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [\n        SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_articulo,\n            BUILTIN.DF(tl.item) as articulo,\n            BUILTIN.DF(i.custitem_ctr_marca) as marca,\n            tl.quantity as cantidad,\n            (SELECT NVL(ip.price, 0) \n             FROM itemPrice ip \n             WHERE ip.item = tl.item \n             AND ip.priceLevelName = 'PRECIO PUBLICO' \n             AND ROWNUM = 1) as precio_publico\n        FROM\n            transaction t,\n            transactionline tl,\n            item i\n        WHERE\n            t.type = 'CashSale'\n            AND t.trandate >= '01/01/2026'\n            AND tl.transaction = t.id\n            AND tl.taxLine = 'F'\n            AND tl.mainLine = 'F'\n            AND tl.netAmount <> 0\n            AND tl.quantity <> 0\n            AND i.id = tl.item\n        ORDER BY\n            t.trandate DESC,\n            t.id DESC LIMIT 1000 OFFSET 1000]: syntax error, state:1225(10102) near: LIMIT(31,23, token code:0).","o:errorQueryParam":"q","o:errorCode":"INVALID_PARAMETER"}]}
+
+2026-02-10 17:09:40,840 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:10:20,007 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:10:20,009 - INFO - 🚀 EXTRACCIÓN FORZADA DESDE: 01/01/2026 (parámetro ignorado)
+2026-02-10 17:10:20,009 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:10:20,009 - INFO - 🚀 Iniciando extracción FORZADA desde 01/01/2026 (ignorando parámetros de fecha)
+2026-02-10 17:10:22,319 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:10:22,720 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:10:22,720 - ERROR - Response status: 400
+2026-02-10 17:10:22,720 - ERROR - Response body: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_ar
+2026-02-10 17:10:22,720 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 289, in main
+    resultados = ejecutar_suiteql(query, fecha_inicio_forzada)
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 154, in ejecutar_suiteql
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:20:43,758 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:20:43,759 - INFO - 🚀 EXTRACCIÓN FORZADA DESDE: 01/01/2026
+2026-02-10 17:20:43,760 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:20:43,760 - INFO - 🚀 Iniciando extracción FORZADA desde 01/01/2026
+2026-02-10 17:20:45,979 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:20:46,549 - ERROR - ❌ Error 400: Query SQL inválida para SuiteQL
+2026-02-10 17:20:46,549 - ERROR -    Query enviada (primeros 300 chars): SELECT t.tranid AS transaccion,
+               t.trandate AS fecha,
+               BUILTIN.DF(t.employee) AS vendedor,
+               BUILTIN.DF(tl.location) AS ubicacion,
+               tl.item AS id_articulo,
+               BUILTIN.DF(tl.item) AS articulo,
+               BUILTIN.DF(i.custitem_ctr_...
+2026-02-10 17:20:46,549 - ERROR -    Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [SELECT t.tranid AS transaccion,\n               t.trandate AS fecha,\n               BUILTIN.DF(t.employee) AS vendedor,\n               BUILTIN.DF(tl.location) AS ubicacion,\n               tl.item AS id_articulo,\n               BUILTIN.DF(tl.item
+2026-02-10 17:20:46,549 - ERROR - ❌ Error inesperado: Query SQL no compatible con SuiteQL (error 400)
+2026-02-10 17:20:46,550 - ERROR - ❌ Error fatal en extracción: Query SQL no compatible con SuiteQL (error 400)
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 313, in main
+    resultados = ejecutar_suiteql(query, fecha_inicio_forzada)
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 158, in ejecutar_suiteql
+    raise Exception("Query SQL no compatible con SuiteQL (error 400)")
+Exception: Query SQL no compatible con SuiteQL (error 400)
+2026-02-10 17:21:52,443 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:21:52,444 - INFO - 🚀 EXTRACCIÓN FORZADA DESDE: 01/01/2026
+2026-02-10 17:21:52,444 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:21:52,444 - INFO - 🚀 Iniciando extracción FORZADA desde 01/01/2026
+2026-02-10 17:21:54,137 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:21:54,643 - ERROR - ❌ Error 400: Query SQL inválida para SuiteQL
+2026-02-10 17:21:54,643 - ERROR -    Query enviada (primeros 300 chars): SELECT t.tranid AS transaccion,
+               t.trandate AS fecha,
+               BUILTIN.DF(t.employee) AS vendedor,
+               BUILTIN.DF(tl.location) AS ubicacion,
+               tl.item AS id_articulo,
+               BUILTIN.DF(tl.item) AS articulo,
+               BUILTIN.DF(i.custitem_ctr_...
+2026-02-10 17:21:54,643 - ERROR -    Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [SELECT t.tranid AS transaccion,\n               t.trandate AS fecha,\n               BUILTIN.DF(t.employee) AS vendedor,\n               BUILTIN.DF(tl.location) AS ubicacion,\n               tl.item AS id_articulo,\n               BUILTIN.DF(tl.item
+2026-02-10 17:21:54,643 - ERROR - ❌ Error inesperado: Query SQL no compatible con SuiteQL (error 400)
+2026-02-10 17:21:54,643 - ERROR - ❌ Error fatal en extracción: Query SQL no compatible con SuiteQL (error 400)
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 315, in main
+    resultados = ejecutar_suiteql(query, fecha_inicio_forzada)
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 160, in ejecutar_suiteql
+    raise Exception("Query SQL no compatible con SuiteQL (error 400)")
+Exception: Query SQL no compatible con SuiteQL (error 400)
+2026-02-10 17:24:38,636 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:24:38,637 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 17:24:38,637 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:24:38,637 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 17:24:41,031 - INFO - Recuperados 939 de 939 registros (página 1)
+2026-02-10 17:24:41,032 - INFO - ✓ Extracción completada: 939 registros recuperados
+2026-02-10 17:24:41,037 - INFO - ✓ Procesamiento completado: 939 registros válidos
+2026-02-10 17:24:41,045 - INFO - ✓ CSV exportado: ventas_ia.csv (939 registros)
+2026-02-10 17:27:12,459 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:27:12,459 - INFO - 🚀 Iniciando extracción de ventas desde 01/01/2026
+2026-02-10 17:27:12,459 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:27:12,459 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/01/2026)
+2026-02-10 17:27:13,530 - INFO - Recuperados 1000 de 4740 registros (página 1)
+2026-02-10 17:27:13,897 - ERROR - ❌ Error HTTP en SuiteQL: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:27:13,898 - ERROR - Response status: 400
+2026-02-10 17:27:13,898 - ERROR - Response body: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"Invalid search query. Detailed unprocessed description follows. Se produjo un error de búsqueda: Failed to parse SQL [SELECT\n            t.tranid as transaccion,\n            TO_CHAR(t.trandate, 'DD/MM/YYYY') as fecha,\n            BUILTIN.DF(t.employee) as vendedor,\n            BUILTIN.DF(tl.location) as ubicacion,\n            REPLACE(tl.item, ' ', '') as id_ar
+2026-02-10 17:27:13,898 - ERROR - ❌ Error fatal en extracción: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 324, in main
+    resultados = ejecutar_suiteql(query, fecha_inicio)
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 170, in ejecutar_suiteql
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://6248386.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
+2026-02-10 17:28:39,034 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:28:39,034 - INFO - 🚀 Iniciando extracción de ventas desde 01/02/2026
+2026-02-10 17:28:39,035 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:28:39,035 - INFO - Iniciando extracción desde NetSuite (fecha_inicio=01/02/2026)
+2026-02-10 17:28:40,136 - INFO - Recuperados 939 de 939 registros (página 1)
+2026-02-10 17:28:40,136 - INFO - ✓ Extracción completada: 939 registros recuperados
+2026-02-10 17:28:40,139 - INFO - ✓ Procesamiento completado: 939 registros válidos
+2026-02-10 17:28:40,143 - INFO - ✓ CSV exportado: ventas_ia.csv (939 registros)
+2026-02-10 17:56:02,606 - INFO - ✓ Credenciales cargadas (account: 6248...)
+2026-02-10 17:56:02,608 - INFO - 🚀 EXTRACCIÓN FORZADA DESDE: 2026-01-01
+2026-02-10 17:56:02,608 - INFO - ✓ Sesión OAuth creada exitosamente
+2026-02-10 17:56:02,608 - INFO - 🚀 Iniciando extracción FORZADA desde 2026-01-01 (paginación OData nativa)
+2026-02-10 17:56:03,123 - ERROR - ❌ Error 400: Query SQL inválida para SuiteQL
+2026-02-10 17:56:03,124 - ERROR -    Query (primeros 300 chars): SELECT 
+            t.tranid AS transaccion,
+            t.trandate AS fecha,
+            BUILTIN.DF(t.employee) AS vendedor,
+            BUILTIN.DF(tl.location) AS ubicacion,
+            tl.item AS id_articulo,
+            BUILTIN.DF(tl.item) AS articulo,
+            BUILTIN.DF(i.custitem_ctr_marca...
+2026-02-10 17:56:03,124 - ERROR -    Response: {"type":"https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.1","title":"Bad Request","status":400,"o:errorDetails":[{"detail":"The required request header 'Prefer' is missing or invalid. Use this header with one of the required values: transient.","o:errorHeader":"Prefer","o:errorCode":"INVALID_HEADER"}]}
+
+2026-02-10 17:56:03,124 - ERROR - ❌ Error inesperado: Query SQL no compatible con SuiteQL (error 400)
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 147, in ejecutar_suiteql
+    raise Exception("Query SQL no compatible con SuiteQL (error 400)")
+Exception: Query SQL no compatible con SuiteQL (error 400)
+2026-02-10 17:56:03,126 - ERROR - ❌ Error fatal en extracción: Query SQL no compatible con SuiteQL (error 400)
+Traceback (most recent call last):
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 298, in main
+    resultados = ejecutar_suiteql(query, fecha_inicio_iso)
+  File "/Users/rodrigoolmedo/Documents/PROGS/IA_Project/ia_ventas_extrae.py", line 147, in ejecutar_suiteql
+    raise Exception("Query SQL no compatible con SuiteQL (error 400)")
+Exception: Query SQL no compatible con SuiteQL (error 400)
